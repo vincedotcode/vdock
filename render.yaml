@@ -1,7 +1,6 @@
 services:
   - type: web
     name: my-wordpress-site
-    env: php
     buildCommand: "composer install --no-dev"
     startCommand: "php -S 0.0.0.0:$PORT -t public"
     envVars:
@@ -24,8 +23,7 @@ services:
       - key: WORDPRESS_DB_NAME
         fromDatabase:
           name: my-wordpress-db
-          property: name
-
+          property: database
 databases:
   - name: my-wordpress-db
     databaseName: mysql
