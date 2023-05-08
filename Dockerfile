@@ -1,13 +1,8 @@
-FROM php:7.4-apache
+FROM wordpress:5.8-php7.4-apache
 
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY wp-content /var/www/html/wp-content
 
 
-COPY . /var/www/html/
-
-
-RUN composer install --no-dev
-
-RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/*.conf
+RUN chown -R www-data:www-data /var/www/html/wp-content \
+    && chmod -R 755 /var/www/html/wp-content
