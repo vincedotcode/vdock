@@ -1,8 +1,7 @@
 services:
   - type: web
     name: my-wordpress-site
-    buildCommand: "composer install --no-dev"
-    startCommand: "php -S 0.0.0.0:$PORT -t public"
+    dockerfilePath: Dockerfile
     envVars:
       - key: WORDPRESS_DB_HOST
         fromDatabase:
