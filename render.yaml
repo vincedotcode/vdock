@@ -5,23 +5,23 @@ services:
     buildCommand: "composer install --no-dev"
     startCommand: "php -S 0.0.0.0:$PORT -t public"
     envVars:
-      - key: WORDPRESS_DB_HOST
+      - key: db
         fromDatabase:
           name: my-wordpress-db
           property: host
-      - key: WORDPRESS_DB_PORT
+      - key: 3306
         fromDatabase:
           name: my-wordpress-db
           property: port
-      - key: WORDPRESS_DB_USER
+      - key: wordpress
         fromDatabase:
           name: my-wordpress-db
           property: user
-      - key: WORDPRESS_DB_PASSWORD
+      - key: wordpress
         fromDatabase:
           name: my-wordpress-db
           property: password
-      - key: WORDPRESS_DB_NAME
+      - key: wordpress
         fromDatabase:
           name: my-wordpress-db
           property: name
