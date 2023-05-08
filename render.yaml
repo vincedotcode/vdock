@@ -28,5 +28,4 @@ services:
 
 databases:
   - name: my-wordpress-db
-    type: mysql
     databaseName: mysql
