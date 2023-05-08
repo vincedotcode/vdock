@@ -1,5 +1,6 @@
 FROM wordpress:latest
 
-# Add custom themes or plugins here
-# Example:
-# COPY ./my-custom-theme /var/www/html/wp-content/themes/my-custom-theme
+ENV WORDPRESS_DB_HOST=db:3306
+ENV WORDPRESS_DB_USER=wordpress
+ENV WORDPRESS_DB_PASSWORD=wordpress
+ENV WORDPRESS_DB_NAME=wordpress
