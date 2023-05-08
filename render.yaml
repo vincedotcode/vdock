@@ -23,6 +23,11 @@ services:
         fromDatabase:
           name: my-wordpress-db
           property: database
+      - key: WORDPRESS_TABLE_PREFIX
+        value: "wp_"
+      - key: WORDPRESS_DEBUG
+        value: "0"
+
 databases:
   - name: my-wordpress-db
     databaseName: mysql
